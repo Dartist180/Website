@@ -1,0 +1,890 @@
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Spartan', sans-serif;
+
+    --color-headlines: #222;
+    --color-hover: rgb(104, 166, 104);
+    --color-primary: rgb(74, 158, 41);
+    --color-secondary: #252c6a;
+    --color-backgroundheader: #E3E6F3;
+    --color-backgroundproducts: rgb(239, 239, 239);
+    --color-border: darkgreen;
+    --color-borderbright: #dee9e0;
+    --color-borderimages: grey;
+    --color-error: #cc3333;
+    --color-success: #4bb544;
+}
+
+body {
+    width: 100%;
+}
+
+h1 {
+    font-size: 50px;
+    line-height: 64px;
+    color: var(--color-headlines);
+}
+
+h2 {
+    font-size: 46px;
+    line-height: 54px;
+    color: var(--color-headlines);
+}
+
+h3 {
+    font-size: 35px;
+    line-height: 1.5;
+    color: var(--color-headlines);
+}
+
+h4 {
+    font-size: 20px;
+    color: var(--color-headlines);
+}
+    
+h6 {
+    font-weight: 700;
+    font-size: 12px;
+    color: var(--color-headlines);
+}
+
+p {
+    font-size: 16px;
+    color: black;
+    margin: 15px 0;
+    hyphens: auto;
+    text-align: justify;
+    line-height: 1.5;
+}
+
+.normal {
+    font-size: 14px;
+    font-weight: 600;
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    border-radius: 2px;
+    padding: 15px 10px;
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+
+button:hover {
+    color: white;
+    border: 2px solid var(--color-border);
+    background-color: var(--color-hover);
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+    transition: 0.5s ease;
+    color: black;
+}
+
+a:hover {
+    color: var(--color-hover);
+}
+
+/* ---------------------------- */
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background: var(--color-backgroundheader);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    z-index: 999; /*to fix it at the top*/
+    position: sticky; /*to fix it at the top*/
+    top: 0; /*to fix it at the top*/
+    left: 0; /*to fix it at the top*/
+}
+
+.headerlogo {
+    width: 80px;
+    height: auto;
+    padding: 0 10px;
+}
+
+.header i {
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+
+#navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#navbar li {
+    list-style: none; /*to get rid of bullet points*/
+    padding: 0 20px;
+    position: relative; /*important because of the position of #navbar li a.active::after*/
+    transition: 0.5s ease;
+}
+
+#navbar li a {
+    text-decoration: none; /*to get rid of underscore*/
+    font-size: 16px;
+    font-weight: 600;
+    color: black;
+    transition: 0.5s ease; /*to have a smooth transition*/
+}
+
+#navbar li a:hover,
+.header #mobile i:hover,
+.header i:hover,
+#navbar li a.active {
+    color: var(--color-hover);
+}
+
+#navbar li a.active::after,
+#navbar li a:hover::after {
+    content: "";
+    width: 50%;
+    height: 2px;
+    background: var(--color-hover);
+    position: absolute; /*to make sure it's right below the parent*/
+    bottom: -5px; /*to have the line 5px below the word*/
+    left: 20px; /*to make sure the line is right under the word according to parent #navbar li*/
+}
+
+#mobile {
+    display: none;
+    align-items: center;   
+}
+
+#close {
+    display: none;
+}
+
+/* ---------------------------- */
+
+.textContainer {
+    margin: 0 0;
+    padding: 40px 80px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    align-items: center;
+    flex-wrap: wrap;
+
+    width: 100%;
+    height: auto;
+}
+
+.textContainer div {
+    border: 2px solid var(--color-borderbright);
+    padding: 20px;
+}
+
+/* ---------------------------- */
+
+.startBanner {
+    background-image: url("images/Hintergrund5.jpg");
+    height: 91vh;
+    width: 100%;
+    background-size: cover; /*to make sure it comes with the full size*/
+    background-position: top 40% left 30%;
+    padding: 0 80px;
+    display: flex; /* display flex is by default row, therefore we need to include a column flex direction*/
+    flex-direction: column;
+    align-items: flex-start;
+    /* justify-content: center; */
+}
+
+.startBanner div {
+    /* background-color: var(--color-backgroundheader); */
+    /* opacity: 0.8; */
+    /* border: 2px solid var(--color-hover); */
+    padding: 20px;
+    margin-top: 50px;
+}
+
+.startBanner h4, 
+.startBanner h2,
+.startBanner h1,
+.startBanner button {
+    margin: 5px;
+}
+
+.startBanner h4 {
+    color: lightgrey;
+}
+
+.startBanner h1 {
+    color: white;
+}
+
+.dartnet {
+    background-image: url("images/dartnet.jpeg");
+}
+
+/* ---------------------------- */
+
+.section-fe {
+    padding: 40px 80px;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /*nice flexible space between the boxes */
+    flex-wrap: wrap; /* goes into the row below if not enough space */
+    background-color: var(--color-backgroundproducts);
+}
+
+.feature .fe-box {
+    width: 180px;
+    text-align: center;
+    padding: 25px 15px;
+    background-color: white;
+    box-shadow: 20px 20px 34px rgba(0, 0, 0, 0.03);
+    border: 1px solid var(--color-borderbright);
+    border-radius: 4px;
+    margin: 15px 0px;
+    transition: 0.5 ease;
+}
+
+.feature .fe-box:hover {
+    box-shadow: 10px 10px 54px rgba(70, 62, 221, 0.14);
+    transform: scale(1.05);
+    cursor: pointer;
+    transition: 0.5 ease;
+}
+
+.feature .fe-box h6 {
+    padding: 9px 8px 6px 8px;
+    line-height: 1.5;
+    border-radius: 4px;
+    color: white;
+    background-color: gold;
+}
+
+.feature .fe-box:nth-child(2) h6 {
+    background-color: rgb(139, 139, 214);
+}
+
+.feature .fe-box:nth-child(3) h6 {
+    background-color: rgb(66, 90, 70);
+}
+
+.feature .fe-box:nth-child(4) h6 {
+    background-color: rgb(143, 87, 138);
+}
+
+.feature .fe-box:nth-child(5) h6 {
+    background-color: rgb(223, 130, 69);
+}
+
+.feature .fe-box:nth-child(6) h6 {
+    background-color: rgb(165, 45, 45);
+}
+
+.feature img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+/* ---------------------------- */
+
+.section-p1 {
+    padding: 40px 80px;
+    /* text-align: center; */
+    background-image: url('images/dartnet\ Kopie.jpeg');
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    width: 100%;
+}
+
+.Oben {
+    display: inline-block;
+    flex-direction: column;
+}
+
+.pro-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /*nice flexible space between the boxes */
+    flex-wrap: wrap; /* goes into the row below if not enough space */
+    padding-top: 20px;
+    margin: 60px 0;
+}
+
+.pro-container .pro {
+    width: 20%;
+    min-width: 250px;
+    padding: 10px 12px;
+    /* background-color: rgb(245, 245, 245); */
+    background-color: #1f1e1e;
+    background-image: url('images/dartnet.jpeg');
+    border: 1px solid var(--color-borderbright);
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 20px 20px 34px rgba(0, 0, 0, 0.03);
+    margin: 15px auto;
+    transition: 0.5 ease;
+    position: relative;
+}
+
+.pro-container .pro:hover {
+    box-shadow: 10px 10px 54px rgba(70, 62, 221, 0.14);
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.pro-container .pro img {
+    width: 100%;
+    border-radius: 10px;
+    background-color: rgb(239, 239, 239);
+}
+
+.pro-container .pro .des {
+    text-align: start;
+    padding: 10px;
+}
+
+.pro-container .pro .des span {
+    color: lightgrey;
+    font-size: 12px;
+}
+
+.pro-container .pro .des h5 {
+    padding-top: 7px;
+    color: white;
+    font-size: 14px;
+}
+
+.pro-container .pro .des h4 {
+    padding-top: 7px;
+    color: #088178;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.pro-container .pro .star {
+    font-size: 12px;
+    color: gold;
+    margin-top: 5px;
+}
+
+.pro-container .pro i {
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50px;
+    background-color: #e8f6ea;
+    color: #088178;
+    border: 1px solid #cce7d0;
+    position: absolute; 
+    bottom: 20px;
+    right: 20px;
+}
+
+.section-p1 h1 {
+    color: white;
+    padding-top: 10px;
+}
+
+.section-p1 a {
+    color: lightgrey;
+}
+
+.section-p1 h4 {
+    text-align: left;
+    color: lightgrey;
+    padding-top: 30px;
+}
+
+#dartnet {
+    padding: 20px;
+    margin-top: 60px;
+    font-size: 30px;
+    font-weight: 700;
+    
+}
+
+#dartnet:hover {
+    color: black;
+}
+
+.countdown-timer {
+    width: 100%;
+    margin-top: 50px;
+}
+
+/* ---------------------------- */
+
+.section-bannerMiddle {
+    margin: 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-image: url('images/Finale.jpeg');
+    background-position: top 40% right 0;
+    width: 100%;
+    height: 50vh;
+    background-size: cover;
+    background-position: center;
+}
+
+
+.section-bannerMiddle div {
+    background-color: var(--color-backgroundheader);
+    opacity: 0.8;
+    border: 2px solid var(--color-hover);
+    padding: 20px;
+}
+
+.section-bannerMiddle h4, 
+.section-bannerMiddle h2,
+.section-bannerMiddle h1,
+.section-bannerMiddle button {
+    margin: 5px;
+}
+
+.section-bannerMiddle h4 {
+    color: var(--color-primary);
+}
+
+.section-bannerMiddle h2 {
+    color: var(--color-primary);
+    font-size: 30px;
+    padding: 10px 0;
+}
+
+/* ---------------------------- */
+
+.section-banner {
+    margin: 0 0;
+    padding: 40px 80px;
+}
+
+.banner2 {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.banner2 .banner-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    /* background-color: black; */
+    border: 2px solid var(--color-borderimages);
+    min-width: 47.5%;
+    height: 50vh;
+    background-size: cover;
+    background-position: center;
+    padding: 30px;
+    margin: 10px 0px;
+}
+
+.banner2 .banner-box1 {
+    background-image: url('Images/Einstein.jpg');
+    opacity: 0.95;
+}
+
+.banner2 .banner-box2 {
+    background-image: url('Images/MaxPower.png');
+    opacity: 0.85;
+}
+
+.banner2 h4 {
+    color: white;
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.banner2 h2 {
+    color: white;
+    font-size: 28px;
+    font-weight: 800;
+}
+
+.banner2 span {
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    padding-bottom: 15px;
+}
+
+/* ---------------------------- */
+
+.banner3 {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.banner3 .banner-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    /* background-color: black; */
+    border: 2px solid var(--color-borderimages);
+    min-width: 30%;
+    height: 30vh;
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.banner3 .banner-box1 {
+    background-image: url('Images/Bier.JPG');
+}
+
+.banner3 .banner-box2 {
+    background-image: url('Images/Bar.JPG');
+}
+
+.banner3 .banner-box3 {
+    background-image: url('Images/Bar2.JPG');
+}
+
+.banner3 h2 {
+    color: white;
+    font-weight: 900;
+    font-size: 22px;
+}
+
+.banner3 h3 {
+    color: var(--color-error);
+    font-weight: 800;
+    font-size: 15px;
+}
+
+/* ---------------------------- */
+
+.newsletter {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    background-color: rgb(77, 77, 179);
+    /* background-image: url('images/BierSchenkung.jpg'); */
+    /* background-repeat: no-repeat; */
+    /* background-position: 20% 30%; */
+    /* background-color: #041e42; */
+    width: 100%;
+}
+
+.newsletter h4 {
+    font-size: 22px;
+    font-weight: 700;
+    color: white;
+}
+
+.newsletter p {
+    font-size: 14px;
+    font-weight: 600;
+    color: lightgrey;
+}
+
+.newsletter p span {
+    color: yellow;
+}
+
+.newsletter .form {
+    display: flex;
+    width: 50%;
+}
+
+.newsletter div input {
+    height: 3.125rem;
+    padding: 0 1.25em;
+    font-size: 14px;
+    min-width: 300px;
+    border: 1px solid white;
+    border-radius: 4px;
+    outline: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.newsletter button {
+    height: 3.125rem;
+    white-space: nowrap;
+    border-radius: none;
+    border: 1px solid white;
+    border-radius: 4px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+/* ---------------------------- */
+
+.section-footer {
+    padding: 40px 0 40px 80px;
+}
+
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+footer .col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    width: 20%;
+}
+
+footer .col img {
+    width: 60%;
+    margin: auto;
+}
+
+footer h4 {
+    font-size: 20px;
+    padding-bottom: 20px;
+}
+
+footer p {
+    font-size: 13px;
+    margin: 0 0 8px 0;
+    line-height: 2;
+}
+
+footer a {
+    text-decoration: none;
+    font-size: 13px;
+    color: #222;
+    margin-bottom: 16px;
+}
+
+footer .follow img {
+    color: #465b52;
+    padding-right: 4px;
+    cursor: pointer;
+    width: 100px;
+    justify-content: center;
+    margin: auto;
+}
+
+footer .follow i:hover,
+footer a:hover {
+    color: var(--color-hover);
+}
+
+.copyright {
+    width: 100%;
+    text-align: center;
+    margin-right: 80px;
+}
+
+/* ---------------------------- */
+
+@media (max-width: 1250px) {
+    .feature {
+        justify-content: center;
+    }
+
+    .feature .fe-box {
+        margin: 15px auto;
+        width: 30%;
+    }
+
+    .banner2 .banner-box {
+        width: 100%;
+    }
+
+    .section-banner {
+        padding: 40px 50px;
+    }
+
+    .section-p1 {
+        padding: 40px 80px;
+    }
+
+    .pro-container .pro {
+        width: 40%;
+       margin-top: 40px;
+    }
+
+
+}
+
+@media (max-width: 910px) {
+    #navbar {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        position: fixed;
+        top: 0;
+        right: -300px;
+        height: 100vh;
+        width: 300px;
+        background-color: #E3E6F3;
+        box-shadow: 0 40px 60px rgba(0, 0, 0, 0.03);
+        padding: 80px 0 0 10px;
+        transition: 0.5s ease;
+    }
+
+    #navbar.active {
+        right: 0px;
+    }
+
+    #navbar li {
+        margin-bottom: 25px;
+    }
+
+    #mobile {
+        display: flex;
+        align-items: center;   
+    }
+
+    #mobile i {
+        color: #1a1a1a;
+        font-size: 24px;
+        padding-right: 20px;
+    }
+
+    #close {
+        display: initial; /* to show the close button */
+        position: absolute;
+        top: 30px;
+        left: 30px;
+        color: #222;
+        font-size: 24px;
+    }
+
+    #lg-bag {
+        display: none;
+    }
+
+    .textContainer {
+        margin: 0 0;
+        padding: 40px 20px;
+    }
+
+    .startBanner {
+        height: 50vh;
+        padding: 0 20px;
+        background-position: top 20% right 80%;
+    }
+
+    .section-p1 {
+        padding: 40px 20px;
+    }
+
+    .section-fe {
+        padding: 40px 20px;
+    }
+
+    .section-m1 {
+        padding: 40px 20px;
+    }
+
+    .section-banner {
+        padding: 40px 20px;
+    }
+
+    .section-footer {
+        padding: 40px 20px 40px 20px;
+    }
+
+
+    footer .col {
+        width: 100%;
+        margin: 20px 30px;
+    }
+
+    .copyright {
+        width: 100%;
+        text-align: center;
+        margin-right: 0;
+    }
+}
+
+
+@media (max-width: 599px) {
+
+    .banner2 .banner-box {
+        height: 30vh;
+    }
+
+    .banner3 .banner-box {
+        width: 100%;
+    }
+
+    .feature .fe-box {
+        width: 47.5%;
+    }
+
+}
+
+@media (max-width: 450px) {
+
+    /* .newsletter-mobil {
+        margin: auto;
+    } */
+
+    .newsletter {
+        align-items: center;
+    }
+
+    .newsletter button {
+        margin: 20px auto 0px auto;
+        width: 300px;
+        border-radius: 2px;
+    }
+    
+    .newsletter .form {
+        display: block;
+    }
+
+    .newsletter p, 
+    .newsletter h4 {
+        width: 300px;
+    }
+    
+    .section-p1 {
+        padding: 40px 5px;
+    }
+    
+    .section-fe {
+        padding: 40px 5px;
+    }
+    
+    .section-m1 {
+        padding: 40px 5px;
+    }
+    
+    .section-banner {
+        padding: 40px 5px;
+    }
+
+    .textContainer {
+        margin: 0 0;
+        padding: 40px 5px;
+    }
+
+    .startBanner {
+        padding: 0 5px;
+    }
+
+}
+
